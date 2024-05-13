@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CoinCounter : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class CoinCounter : MonoBehaviour
             //Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
             
+        }
+
+        if (collision.gameObject.CompareTag("DeathZone"))
+        {
+            SceneManager.LoadScene("Game");
         }
     }
 }
