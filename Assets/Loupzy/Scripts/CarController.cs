@@ -1,52 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class CarController : MonoBehaviour
-{
-    WheelJoint2D[] wheelJoints;
-    JointMotor2D frontWheel;
-    JointMotor2D backWheel;
+public class CarController : MonoBehaviour {
+    public float speed;
+    public float carSpeed;
+    public float inputMove;
+    public Rigidbody2D tireFront;
+    public Rigidbody2D tireBack;
+    public Rigidbody2D carRb2d;
 
-    private float deceleration = -400f;
-    private float gravity = 9.8f;
-    public float angleCar = 0;
-    public float acceleration = 500f;
-    public float maxSpeed = -800f;
-    public float maxBackSpeed = 600f;
-    public float brakeForce = 1000f;
-    public float wheelSize;
-    public bool grounded=false;
-    public LayerMask ground;
-    public Transform bWheel;
+    private int direction;
 
-    private void Start() {
-        wheelJoints= gameObject.GetComponents<WheelJoint2D>();
-        frontWheel = wheelJoints[0].motor;
-        backWheel = wheelJoints[1].motor;
+    [SerializeField] private ParticleSystem particles;
+
+    private void Update() {
+        GetInput();
+        HandleParticles();
     }
 
     private void FixedUpdate() {
-        grounded = Physics2D.OverlapCircle(bWheel.transform.position, wheelSize, ground);
-        angleCar = transform.localEulerAngles.z;
-        if (angleCar > 100) angleCar = angleCar - 360;
-        if(grounded) {
-            //if (Input.GetAxis("Horizontal") > 0)
-                backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (acceleration - gravity * Mathf.PI * (angleCar / 100) * 80) * Input.GetAxis("Horizontal")* Time.deltaTime, maxSpeed, maxBackSpeed);
+        MoveLogic();
+        MoveMobile();
+    }
+
+    void GetInput() {
+        inputMove = Input.GetAxis("Horizontal");
+    }
+
+    void MoveLogic() {
+        tireFront.AddTorque(-inputMove * speed * Time.fixedDeltaTime);
+        tireBack.AddTorque(-inputMove * speed * Time.fixedDeltaTime);
+        carRb2d.AddTorque(-inputMove * carSpeed * Time.fixedDeltaTime);
+    }
+
+    void MoveMobile() {
+        tireFront.AddTorque(direction * speed * Time.deltaTime);
+        tireBack.AddTorque(direction * speed * Time.deltaTime);
+        carRb2d.AddTorque(direction * carSpeed * Time.deltaTime);
+    }
+
+    public void CarInputMobile(int dir) {
+        direction = dir;
+    }
+
+    void HandleParticles() {
+        if (inputMove != 0 || direction != 0) {
+            particles.Play();
+        } else {
+            if (particles.isPlaying) {
+                particles.Stop();
+            }
         }
-        //if (Input.GetAxis("Horizontal") < 0 && backWheel.motorSpeed < 0)
-           // backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (deceleration - gravity * Mathf.PI * (angleCar / 100) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
-        // (Input.GetAxis("Horizontal") < 0 && backWheel.motorSpeed > 0)
-           // backWheel.motorSpeed = Mathf.Clamp(backWheel.motorSpeed - (-deceleration - gravity * Mathf.PI * (angleCar / 100) * 80) * Time.deltaTime, maxSpeed, maxBackSpeed);
-        frontWheel=backWheel;
-        wheelJoints[0].motor = backWheel;
-        wheelJoints[1].motor = frontWheel;
-
     }
-
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(bWheel.transform.position,wheelSize);
-    }
-
 }

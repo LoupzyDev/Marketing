@@ -11,6 +11,8 @@ public class CoinCounter : MonoBehaviour
     [SerializeField] int coinValue;
     [SerializeField] TextMeshProUGUI coinsText;
 
+    [SerializeField] CarController carController;
+
     private void Update()
     {
         coinsText.text = "Coins: " + Mathf.RoundToInt(coins).ToString();
@@ -25,12 +27,27 @@ public class CoinCounter : MonoBehaviour
             //destruir monedas 
             //Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
-            
+            StartCoroutine(DoubleSpeed());
+
         }
 
         if (collision.gameObject.CompareTag("DeathZone"))
         {
             SceneManager.LoadScene("Game");
         }
+    }
+    private IEnumerator DoubleSpeed() {
+        float originalSpeed = carController.speed;
+        float originalCarSpeed = carController.carSpeed;
+
+
+        carController.speed = Mathf.Min(carController.speed * 2, 160);
+        carController.carSpeed = Mathf.Min(carController.carSpeed * 2, 80);
+
+        yield return new WaitForSeconds(2);
+
+
+        carController.speed = 80;
+        carController.carSpeed = 40;
     }
 }

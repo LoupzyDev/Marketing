@@ -13,7 +13,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -48,4 +48,10 @@ TagManager:
     locked: 0
   - name: Playground
     uniqueID: 299871363
+    locked: 0
+  - name: Player
+    uniqueID: 2164900711
+    locked: 0
+  - name: UI
+    uniqueID: 2547717051
     locked: 0
