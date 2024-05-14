@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ad1f9f6bddb74e9e4aaf196b04342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0.5
+  speedMultiplier: 0.2
 --- !u!1 &105903536
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ad1f9f6bddb74e9e4aaf196b04342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: -1
+  speedMultiplier: -0.6
 --- !u!1 &359632706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ad1f9f6bddb74e9e4aaf196b04342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: -1
+  speedMultiplier: -0.6
 --- !u!1001 &710639906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3944,7 +3944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ad1f9f6bddb74e9e4aaf196b04342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: -1
+  speedMultiplier: -0.6
 --- !u!1 &1148835355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4704,8 +4704,8 @@ GameObject:
   - component: {fileID: 1247369650}
   - component: {fileID: 1247369649}
   - component: {fileID: 1247369648}
-  - component: {fileID: 1247369652}
   - component: {fileID: 1247369653}
+  - component: {fileID: 1247369652}
   - component: {fileID: 1247369654}
   m_Layer: 0
   m_Name: Truck
@@ -4729,12 +4729,12 @@ WheelJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 1.8908365, y: -0.57241774}
+  m_Anchor: {x: 1.8908362, y: -0.57241786}
   m_ConnectedAnchor: {x: 0.0015730521, y: 0.038717616}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 10
-    m_Angle: 90
+    m_DampingRatio: 0.8
+    m_Frequency: 2
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4757,9 +4757,9 @@ WheelJoint2D:
   m_Anchor: {x: -0.5600002, y: -0.59299994}
   m_ConnectedAnchor: {x: -0.00000029994112, y: -0.00000000843179}
   m_Suspension:
-    m_DampingRatio: 0.7
-    m_Frequency: 10
-    m_Angle: 90
+    m_DampingRatio: 0.8
+    m_Frequency: 2
+    m_Angle: 0
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9891,7 +9891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ad1f9f6bddb74e9e4aaf196b04342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: -1
+  speedMultiplier: -0.6
 --- !u!1 &1415616207
 GameObject:
   m_ObjectHideFlags: 0
@@ -9926,7 +9926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 107, y: -78}
+  m_AnchoredPosition: {x: 107, y: -155}
   m_SizeDelta: {x: 744.92, y: 136.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1415616209
@@ -9958,8 +9958,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9982,7 +9982,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -10199,7 +10199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ad1f9f6bddb74e9e4aaf196b04342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0.5
+  speedMultiplier: 0.2
 --- !u!1001 &1452694863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10574,8 +10574,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10598,7 +10598,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -10658,7 +10658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 850, y: 387}
+  m_AnchoredPosition: {x: 850, y: 299}
   m_SizeDelta: {x: 616.46, y: 150.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1641272147
